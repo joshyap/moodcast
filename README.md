@@ -7,8 +7,8 @@ What is Moodcast?
 Moodcast is a website that generates playlists based on user mood or weather at a particular location. The user will have two options to choose a playlist: they can choose from a list of given moods, or type in a location and spotify will generate music based on currect conditions of that location.
 
 APIS to be used: 
-- 1. Spotify 
-- 2. Open Weather Map
+ 1. Spotify 
+ 2. Open Weather Map
 
 Tasks: 
 - 1. Front end design of location search button, buttons for user moods, location of both APIS.  
