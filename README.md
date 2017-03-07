@@ -20,5 +20,9 @@ Tasks:
  7. When each button is clicked, it will send keywords to spotify, which will generate playlist based on the mood 
  8. CSS animations wil change based on each user inquiry
 
+Nice-to-have's/Next Steps:
+* Google Maps API
+* history log of moods/songs
+ 
 Balsamiq Sketch: https://www.dropbox.com/s/td6uxft0rchumpg/moodcast.png?dl=0
 
