@@ -2,8 +2,90 @@
 <html>
 <head>
 	<title>Moodcast</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
+	
+<div class="container"> 
+
+	<div class="row">
+
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 jumbotron"> 
+
+					<h1> Moodcast</h1>
+					<h3> Music from the weather</h3>
+
+		</div>
+
+	</div>
+
+	<div class="row">
+
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 mood-maker">
+
+
+			<div id="location"> 
+
+		  		<input type="text" value="Enter your location">
+
+			</div>
+
+			<br>
+
+			<div class="mood-buttons"> 
+
+				<button class="depth" type="button" id="happy"> Happy </button>
+				<br>
+				<button class="depth" type="button" id="sad"> Sad </button>
+				<br>
+				<button class="depth" type="button" id="angry"> Angry </button>
+				<br>
+				<button class="depth" type="button" id="relaxing"> Relaxing </button>
+				<br>
+				<button class="depth" type="button" id="dance"> Dance </button>
+				<br>
+				<button class="depth" type="button" id="time-to-sleep"> Time to Sleep </button>
+
+			
+			</div>
+
+		</div>
+
+		<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 spotify">
+
+			<div> 
+
+				<iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:3rgsDhGHZxZ9sB9DQWQfuf" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+
+			</div>
+
+
+	    </div>
+
+
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 playlist">
+
+			<div>
+
+				<h3> Playlist </h3>
+				
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+</div>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>
+  <script src="assets/javascript/app.js"> </script>
 </body>
 </html>
