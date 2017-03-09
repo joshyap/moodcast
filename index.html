@@ -26,11 +26,16 @@
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 mood-maker">
 
 
-			<div id="location"> 
-
-		  		<input type="text" value="Enter your location">
-
-			</div>
+			<form>
+			    <input id="selectedLocation" type="text" name="location">
+			    <br>
+			    <button id="btnSelectLocation">Search Location</button>
+			</form>
+			<div class="city">City:</div>
+			<div class="wind">Wind:</div>
+			<div class="humidity">Humidity:</div>
+			<div class="temp">Temp:</div>
+			<div class="rain">Rain:</div>
 
 			<br>
 
@@ -82,10 +87,59 @@
 </div>
 
 
-<script
-  src="https://code.jquery.com/jquery-3.1.1.js"
-  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
-  crossorigin="anonymous"></script>
-  <script src="assets/javascript/app.js"> </script>
+<script src="https://code.jquery.com/jquery-3.1.1.js" </script>
+<script src="assets/javascript/app.js"> </script>
+<script type="text/javascript">
+    // This is our API key
+    var APIKey = "166a433c57516f51dfab1f7edaed8413";
+    // Here we are building the URL we need to query the database
+    //var queryURL = "http://api.openweathermap.org/data/2.5/weather?" + "q=Bujumbura,Burundi&units=imperial&appid=" + APIKey;
+    //var searchLocation = $("#selectedLocation").val().trim();
+    var searchLocation = "houston";
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?" + "q=" + searchLocation + "&units=imperial&appid=" + APIKey;
+//start of button
+$("#btnSelectLocation").on("click", function(event) {
+  event.preventDefault();
+  searchLocation = $("#selectedLocation").val().trim();
+  //console.log("Location: " + searchLocation);
+  queryURL = "http://api.openweathermap.org/data/2.5/weather?" + "q=" + searchLocation + "&units=imperial&appid=" + APIKey;
+  //console.log(queryURL);
+//});
+/*
+          $(".city").html("<h1>" + response.name + " Weather Details</h1>");
+          console.log("City: " + response.name);
+          $(".wind").html("Wind Speed: " + response.wind.speed);
+          console.log("Wind speed: " + response.wind.speed);
+          $(".humidity").html("Humidity: " + response.main.humidity);
+          console.log("Humidity: " + response.main.humidity);
+          $(".temp").html("Temperature (F) " + response.main.temp);
+          console.log("Temperature: " + response.main.temp);
+*/
+//end of button
+    // Here we run our AJAX call to the OpenWeatherMap API
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+      // We store all of the retrieved data inside of an object called "response"
+      .done(function(response) {
+        // Log the queryURL
+        console.log(queryURL);
+        // Log the resulting object
+        console.log(response);
+        // Transfer content to HTML
+        $(".city").html("<h1>" + response.name + " Weather Details</h1>");
+        $(".wind").html("Wind Speed: " + response.wind.speed);
+        $(".humidity").html("Humidity: " + response.main.humidity);
+        $(".temp").html("Temperature (F): " + response.main.temp);
+        $(".rain").html("Precipitation: " + response.weather[0].main);
+        // Log the data in the console as well
+        //console.log("Wind Speed: " + response.wind.speed);
+        //console.log("Humidity: " + response.main.humidity);
+        //console.log("Temperature (F): " + response.main.temp);
+  
+        });
+      });
+  </script>
 </body>
 </html>
