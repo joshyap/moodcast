@@ -1,5 +1,29 @@
-.jumbotron {
-	background-color: #eea659;
+.header {
+	background-color: #eee;
+    margin-bottom: 40px;
+
+}
+
+.main-table {
+    border: solid black;
+}
+
+.button-head {
+    background-color: #eee;
+    padding: 5px;
+}
+
+#weather {
+    background-color: ;
+
+}
+
+#mood-button {
+
+}
+
+#custom-search {
+
 }
 
 .depth {
@@ -23,4 +47,12 @@
 
 .depth:active {
 	color: #eea659;;
+}
+
+.search {
+
+}
+
+.playlist {
+    
 }

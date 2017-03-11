@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
 	<title>Moodcast</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
@@ -12,7 +13,7 @@
 
 	<div class="row">
 
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 jumbotron"> 
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 header"> 
 
 					<h1> Moodcast</h1>
 					<h3> Music from the weather</h3>
@@ -22,47 +23,78 @@
 	</div>
 
 	<div class="row">
+ 
+		<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 main-table">
 
-		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 mood-maker">
 
+			<div class="button-head">
 
-			<form>
-			    <input id="selectedLocation" type="text" name="location">
-			    <br>
-			    <button id="btnSelectLocation">Search Location</button>
-			</form>
-			<div class="city">City:</div>
-			<div class="wind">Wind:</div>
-			<div class="humidity">Humidity:</div>
-			<div class="temp">Temp:</div>
-			<div class="rain">Rain:</div>
+				<button id="weather"><h6> Weather Search</h6></button>
+				<button id="mood-button"><h6> Mood Search</h6></button>
+				<button id="custom-search"><h6> Custom Search</h6></button>
+			</div>
 
-			<br>
+			<div id="box">
 
-			<div class="mood-buttons"> 
+				<div class="weather-selector">
+				<h3> Search by Location </h3>
+					<form>
+					    <input id="selectedLocation" type="text" name="location">
+					    <br>
+					    <button id="btnSelectLocation">Search Location</button>
+					</form>
+					<div class="city"><h5> City: </h5></div>
+					<div class="wind"><h5>Wind: </h5></div>
+					<div class="humidity"><h5>Humidity:</h5></div>
+					<div class="temp"><h5>Temp:</h5></div>
+					<div class="rain"><h5>Rain:</h5></div>
 
-				<button class="depth" type="button" id="happy"> Happy </button>
+				</div>
+
 				<br>
-				<button class="depth" type="button" id="sad"> Sad </button>
-				<br>
-				<button class="depth" type="button" id="angry"> Angry </button>
-				<br>
-				<button class="depth" type="button" id="relaxing"> Relaxing </button>
-				<br>
-				<button class="depth" type="button" id="dance"> Dance </button>
-				<br>
-				<button class="depth" type="button" id="time-to-sleep"> Time to Sleep </button>
 
-			
+				<div class="mood-buttons"> 
+
+					<button class="depth" type="button" id="happy"> Happy </button>
+					<br>
+					<button class="depth" type="button" id="sad"> Sad </button>
+					<br>
+					<button class="depth" type="button" id="angry"> Angry </button>
+					<br>
+					<button class="depth" type="button" id="relaxing"> Relaxing </button>
+					<br>
+					<button class="depth" type="button" id="dance"> Dance </button>
+					<br>
+					<button class="depth" type="button" id="time-to-sleep"> Time to Sleep </button>
+
+				
+				</div>
+
+				<br>
+
+
+				<div class="search">
+				    <form>
+				    <h3>Search for more YouTube noises</h3>
+				       <input type="text" name="searchInput" id="userSearch"><br>
+				       <button class="searchButton">
+				         Search
+				       </button>
+				    </form>
+				</div>
+
 			</div>
 
 		</div>
 
-		<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 spotify">
+		<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 youtube">
 
 			<div> 
 
-				<iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:3rgsDhGHZxZ9sB9DQWQfuf" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+				   <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+			    <div id="player"></div>
+
+			    <iframe width="560" height="315" src="https://www.youtube.com/embed/jX6kn9_U8qk" frameborder="0" allowfullscreen></iframe>
 
 			</div>
 
@@ -70,19 +102,35 @@
 	    </div>
 
 
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 playlist">
-
-			<div>
-
-				<h3> Playlist </h3>
-				
-
-			</div>
-
-		</div>
 
 	</div>
 
+	<div class="playlist">
+
+		<div>
+
+			<h3> Playlist </h3>
+
+			<table class="table">
+		 	 <thead>
+		    	<tr>
+		    	  <th>Playlist</th>
+		     	  <th>Playlist Link</th>
+		   		</tr>
+		     </thead>
+		     <tbody>
+		        <tr>
+		      	  <td id="train"></td>
+		     	  <td id="train-destination"></td>
+		     	  <td id="train-frequency"></td>
+		     	  <td id="train-next-arrival"></td>
+		     	  <td id="train-minutes-away"></td>
+		   	     </tr>
+		  	  </tbody>
+		  	</table>
+		</div>
+
+	</div>
 
 </div>
 
@@ -90,6 +138,8 @@
 <script src="https://code.jquery.com/jquery-3.1.1.js" </script>
 <script src="assets/javascript/app.js"> </script>
 <script type="text/javascript">
+    
+
     // This is our API key
     var APIKey = "166a433c57516f51dfab1f7edaed8413";
     // Here we are building the URL we need to query the database
@@ -139,7 +189,31 @@ $("#btnSelectLocation").on("click", function(event) {
         //console.log("Temperature (F): " + response.main.temp);
   
         });
-      });
+      }); 
+
+function moods (){
+
+$(".mood-buttons").toggle();
+$(".search").toggle();
+
+$("#weather").click(function(){
+	$(".weather-selector").toggle();
+	//$("#box").html("");
+    //$("#box").append($(".weather-selector"));
+});
+$("#mood-button").click(function(){
+    $(".mood-buttons").toggle();
+	//$("#box").html("");
+	//$("#box").append($(".mood-buttons"));
+});
+$("#custom-search").click(function(){
+	$(".search").toggle();
+	//$("#box").html("");
+	//$("#box").append($(".search"));
+})
+};
+
+moods();
   </script>
 </body>
 </html>
