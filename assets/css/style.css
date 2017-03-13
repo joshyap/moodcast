@@ -1,7 +1,17 @@
 .header {
 	background-color: #eee;
     margin-bottom: 40px;
+    padding: 10px;
+}
 
+#title {
+    float:left;
+    border: solid black;
+}
+
+#slogan {
+    float:right;
+    border: solid black;
 }
 
 .main-table {
