@@ -1,5 +1,55 @@
+<<<<<<< HEAD:public/assets/css/style.css
 .jumbotron {
 	background-color: #eea659;
+=======
+
+
+.header {
+	background-color: #eee;
+    margin-bottom: 40px;
+    padding: 10px;
+    display:flex;
+    justify-content: space-around;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#head-image {
+    position: relative;
+    top: 30px;
+}
+
+#title {
+    display: flex;
+    align-items: flex-end;
+    font-size: 50px;
+}
+
+#slogan {
+    display: flex;
+    align-items: flex-end;
+}
+
+.main-table {
+    border: solid black;
+}
+
+.button-head {
+    background-color: #eee;
+    padding: 5px;
+}
+
+#weather {
+    background-color: ;
+
+}
+
+#mood-button {
+
+}
+
+#custom-search {
+
+>>>>>>> 029c954a619003a6eefc96d4464be8e8c0a8c60e:assets/css/style.css
 }
 
 .depth {
@@ -24,3 +74,21 @@
 .depth:active {
 	color: #eea659;;
 }
+<<<<<<< HEAD:public/assets/css/style.css
+=======
+
+.search {
+
+}
+
+.playlist {
+    
+}
+
+@media only screen and (max-width:1200px) {
+    .header {
+        width:100%;
+    }
+
+}
+>>>>>>> 029c954a619003a6eefc96d4464be8e8c0a8c60e:assets/css/style.css
