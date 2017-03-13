@@ -1,17 +1,28 @@
+
+
 .header {
 	background-color: #eee;
     margin-bottom: 40px;
     padding: 10px;
+    display:flex;
+    justify-content: space-around;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#head-image {
+    position: relative;
+    top: 30px;
 }
 
 #title {
-    float:left;
-    border: solid black;
+    display: flex;
+    align-items: flex-end;
+    font-size: 50px;
 }
 
 #slogan {
-    float:right;
-    border: solid black;
+    display: flex;
+    align-items: flex-end;
 }
 
 .main-table {
@@ -65,4 +76,11 @@
 
 .playlist {
     
+}
+
+@media only screen and (max-width:1200px) {
+    .header {
+        width:100%;
+    }
+
 }

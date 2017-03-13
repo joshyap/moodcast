@@ -14,13 +14,19 @@
 	<div class="row">
 
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 header"> 
-
+			<img id="head-image" src="assets/images/headphones.png">
 			<h1 id="title"> Moodcast</h1>
-			<h3 id="slogan"> Music from the weather</h3>
+			<h3 id="slogan"> Music for your Mood</h3>
 
 		</div>
 
 	</div>
+
+	<div class="row">
+        <div class="col-xs-12">
+            <button class="btn btn-default show-left-drawer">Toggle Table</button>
+        </div>
+    </div>
 
 	<div class="row">
  
@@ -134,12 +140,16 @@
 
 </div>
 
-
+<script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
+<!--<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+<script src="js/vendor/modernizr.js"> </script>
+<script src="//cdn.jsdelivr.net/velocity/1.4/velocity.min.js"></script> -->
 <script src="https://code.jquery.com/jquery-3.1.1.js" </script>
 <script src="assets/javascript/app.js"> </script>
+<script src="assets/javascript/index.js"> </script>
 <script type="text/javascript">
     
-
+/*
     // This is our API key
     var APIKey = "166a433c57516f51dfab1f7edaed8413";
     // Here we are building the URL we need to query the database
@@ -167,7 +177,7 @@ $("#btnSelectLocation").on("click", function(event) {
 */
 //end of button
     // Here we run our AJAX call to the OpenWeatherMap API
-    $.ajax({
+  /*  $.ajax({
         url: queryURL,
         method: "GET"
       })
@@ -191,35 +201,68 @@ $("#btnSelectLocation").on("click", function(event) {
         });
       }); 
 
+var headerColor = Math.floor(Math.random() * 7)+1;
+
+if (headerColor === 1) {
+	$(".header").css("background", "rgba(101, 44, 144, 1)");
+}
+else if (headerColor === 2) {
+	$(".header").css("background", "rgba(0, 167, 157, 1)");
+}
+else if (headerColor === 3) {
+	$(".header").css("background", "rgba(212, 20, 90, 0.7)");
+}
+else if (headerColor === 4) {
+	$(".header").css("background", "rgba(147, 39, 143, 1)");
+	$("#title").css("color", "333");
+	$("#slogan").css("color", "333");
+}
+else if (headerColor === 5) {
+ $(".header").css("background", "rgba(158, 0, 93, 1)");
+}
+else if (headerColor === 6) {
+ $(".header").css("background", "rgba(253, 185, 19, 1)");
+}
+else if (headerColor === 7) {
+ $(".header").css("background", "rgba(43, 57, 144, 1)");
+}
+
+
 function moods (){
 
-$(".mood-buttons").toggle();
-$(".search").toggle();
+	$(".mood-buttons").toggle();
+	$(".search").toggle();
+	$(".main-table").toggle();
 
-$("#weather").click(function(){
-	$(".weather-selector").show(500);
-	$(".mood-buttons").hide(500);
-	$(".search").hide(500);
-	//$("#box").html("");
-    //$("#box").append($(".weather-selector"));
-});
-$("#mood-button").click(function(){
-   $(".mood-buttons").show(500);
-	$(".weather-selector").hide(500);
-	$(".search").hide(500);
-	//$("#box").html("");
-	//$("#box").append($(".mood-buttons"));
-});
-$("#custom-search").click(function(){
-	$(".search").show(500);
-	$(".mood-buttons").hide(500);
-	$(".weather-selector").hide(500);
-	//$("#box").html("");
-	//$("#box").append($(".search"));
-})
+	$(".show-left-drawer").on("click", function(){
+		$(".main-table").toggle();
+
+		$("#weather").click(function(){
+			$(".weather-selector").show(500);
+			$(".mood-buttons").hide(500);
+			$(".search").hide(500);
+			//$("#box").html("");
+		    //$("#box").append($(".weather-selector"));
+		});
+		$("#mood-button").click(function(){
+		   $(".mood-buttons").show(500);
+			$(".weather-selector").hide(500);
+			$(".search").hide(500);
+			//$("#box").html("");
+			//$("#box").append($(".mood-buttons"));
+		});
+		$("#custom-search").click(function(){
+			$(".search").show(500);
+			$(".mood-buttons").hide(500);
+			$(".weather-selector").hide(500);
+			//$("#box").html("");
+			//$("#box").append($(".search"));
+		})
+
+	})
 };
 
-moods();
+moods(); */
   </script>
 </body>
 </html>
