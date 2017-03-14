@@ -71,9 +71,11 @@ $("#btnSelectLocation").on("click", function(event) {
         console.log(queryURL);
         // Log the resulting object
         console.log(response.name);
+        console.log('working');
 
-         var searchName = $('#selectedLocation').val().trim();
-         var name = response.name;
+         var searchName = $('#selectedLocation').val().trim().toLowerCase();
+         var name = response.name.toLowerCase();
+
 
          //use underscore to compare entered name and search result
          var nameTest = _.isEqual(searchName, name);
