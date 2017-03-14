@@ -70,8 +70,24 @@ $("#btnSelectLocation").on("click", function(event) {
         // Log the queryURL
         console.log(queryURL);
         // Log the resulting object
-        console.log(response);
+        console.log(response.name);
+
+         var searchName = $('#selectedLocation').val().trim();
+         var name = response.name;
+
+         //use underscore to compare entered name and search result
+         var nameTest = _.isEqual(searchName, name);
+
+        //conditional to check it the response name matches the entered name
+        if(!nameTest) {
+        alert('invalid city, please try again');
+      }
+
+         // This conditional triggers when the rendered city name matches the city name entered
+      else {
+
         // Transfer content to HTML
+
         $(".city").html("<h1>" + response.name + " Weather Details</h1>");
         $(".wind").html("Wind Speed: " + response.wind.speed);
         $(".humidity").html("Humidity: " + response.main.humidity);
@@ -86,7 +102,20 @@ $("#btnSelectLocation").on("click", function(event) {
         database.ref().push({
         name: response.name,
         });
+      }
 
   
-        });
+        })
+      //function for AJAX 404
+      .fail(function(error) {
+        alert('Invalid city, please try again');
+      });
       }); 
+
+   $('button').on('click', function() {
+   
+    console.log($(this).attr('id'));
+
+
+    //database.ref()push({})
+   })
