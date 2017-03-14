@@ -13,6 +13,7 @@
 
 var database = firebase.database();
 
+
 // Initial Values
 //var initialBid = 0;
 //var name = '';
