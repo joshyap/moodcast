@@ -1,8 +1,3 @@
-<<<<<<< HEAD:public/assets/css/style.css
-.jumbotron {
-	background-color: #eea659;
-=======
-
 
 .header {
 	background-color: #eee;
@@ -49,7 +44,6 @@
 
 #custom-search {
 
->>>>>>> 029c954a619003a6eefc96d4464be8e8c0a8c60e:assets/css/style.css
 }
 
 .depth {
@@ -74,8 +68,7 @@
 .depth:active {
 	color: #eea659;;
 }
-<<<<<<< HEAD:public/assets/css/style.css
-=======
+
 
 .search {
 
@@ -91,4 +84,4 @@
     }
 
 }
->>>>>>> 029c954a619003a6eefc96d4464be8e8c0a8c60e:assets/css/style.css
+
