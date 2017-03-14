@@ -1,3 +1,4 @@
+
 // This is our API key
     var APIKey = "166a433c57516f51dfab1f7edaed8413";
     // Here we are building the URL we need to query the database
@@ -53,26 +54,34 @@ var headerColor = Math.floor(Math.random() * 7)+1;
 
 if (headerColor === 1) {
 	$(".header").css("background", "rgba(101, 44, 144, 1)");
+  $(".show-left-drawer").css("background", "rgba(101, 44, 144, 1)");
+  $(".depth:hover").css("color", "rgba")
 }
 else if (headerColor === 2) {
 	$(".header").css("background", "rgba(0, 167, 157, 1)");
+  $(".show-left-drawer").css("background", "rgba(0, 167, 157, 1)");
 }
 else if (headerColor === 3) {
 	$(".header").css("background", "rgba(212, 20, 90, 0.7)");
+  $(".show-left-drawer").css("background", "rgba(212, 20, 90, 0.7)");
 }
 else if (headerColor === 4) {
 	$(".header").css("background", "rgba(147, 39, 143, 1)");
-	$("#title").css("color", "333");
-	$("#slogan").css("color", "333");
+  $("#title").css("color", "333");
+  $("#slogan").css("color", "333");
+  $(".show-left-drawer").css("background", "rgba(147, 39, 143, 1)");
 }
 else if (headerColor === 5) {
  $(".header").css("background", "rgba(158, 0, 93, 1)");
+ $(".show-left-drawer").css("background", "rgba(158, 0, 93, 1)");
 }
 else if (headerColor === 6) {
  $(".header").css("background", "rgba(253, 185, 19, 1)");
+ $(".show-left-drawer").css("background", "rgba(253, 185, 19, 1)");
 }
 else if (headerColor === 7) {
  $(".header").css("background", "rgba(43, 57, 144, 1)");
+ $(".show-left-drawer").css("background", "rgba(43, 57, 144, 1)");
 }
 
 

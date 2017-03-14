@@ -24,6 +24,10 @@
     align-items: flex-end;
 }
 
+.show-left-drawer {
+    color: rgba(255, 255, 255, 0.7);
+}
+
 .main-table {
     border: solid black;
 }
@@ -38,7 +42,8 @@
 
 }
 
-#mood-button {
+.mood-buttons {
+    
 
 }
 
