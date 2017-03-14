@@ -11,6 +11,7 @@
 #head-image {
     position: relative;
     top: 30px;
+
 }
 
 #title {
@@ -24,7 +25,19 @@
     align-items: flex-end;
 }
 
+.show-left-drawer {
+    color: rgba(255, 255, 255, 0.7);
+}
+
 .main-table {
+    border: solid black;
+    z-index: 2;
+}
+
+.youtube {
+    display: flex;
+    /*justify-content: center;*/
+    z-index: 1;
     border: solid black;
 }
 
@@ -38,7 +51,8 @@
 
 }
 
-#mood-button {
+.mood-buttons {
+
 
 }
 
