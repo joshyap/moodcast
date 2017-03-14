@@ -1,268 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Moodcast</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to Firebase Hosting</title>
+    <style media="screen">
+      body {
+        font-family: Roboto, Arial, sans-serif;
+        background: #ECEFF1;
+        color: rgba(0,0,0,0.87);
+      }
 
-	
-<div class="container"> 
+      a {
+        color: rgb(3,155,229);
+      }
 
-	<div class="row">
+      #message {
+        max-width: 400px;
+        margin: 40px auto;
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
+        border-radius: 2px;
+        background: white;
+        padding: 16px 24px;
+      }
 
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 header"> 
-			<img id="head-image" src="assets/images/headphones.png">
-			<h1 id="title"> Moodcast</h1>
-			<h3 id="slogan"> Music for your Mood</h3>
+      #message h1 {
+        font-size: 22px;
+        font-weight: 500;
+        text-align: center;
+        margin: 0 0 16px;
+      }
 
-		</div>
+      #message p {
+        font-weight: 300;
+        line-height: 150%;
+      }
 
-	</div>
+      #message ul {
+        list-style: none;
+        margin: 16px 0 0;
+        padding: 0;
+        text-align: center;
+      }
 
-	<div class="row">
-        <div class="col-xs-12">
-            <button class="btn btn-default show-left-drawer">Toggle Table</button>
-        </div>
+      #message li a {
+        display: inline-block;
+        padding: 8px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 500;
+        background: rgb(3,155,229);
+        color: white;
+        border: 1px solid rgb(3,155,229);
+        border-radius: 3px;
+        font-size: 14px;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="message">
+      <h1>Welcome to Firebase Hosting</h1>
+      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
+      <ul>
+        <li><a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a></li>
+      </ul>
     </div>
-
-	<div class="row">
- 
-		<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 main-table">
-
-
-			<div class="button-head">
-
-				<button id="weather"><h6> Weather Search</h6></button>
-				<button id="mood-button"><h6> Mood Search</h6></button>
-				<button id="custom-search"><h6> Custom Search</h6></button>
-			</div>
-
-			<div id="box">
-
-				<div class="weather-selector">
-				<h3> Search by Location </h3>
-					<form>
-					    <input id="selectedLocation" type="text" name="location">
-					    <br>
-					    <button id="btnSelectLocation">Search Location</button>
-					</form>
-					<div class="city"><h5> City: </h5></div>
-					<div class="wind"><h5>Wind: </h5></div>
-					<div class="humidity"><h5>Humidity:</h5></div>
-					<div class="temp"><h5>Temp:</h5></div>
-					<div class="rain"><h5>Rain:</h5></div>
-
-				</div>
-
-				<br>
-
-				<div class="mood-buttons"> 
-
-					<button class="depth" type="button" id="happy"> Happy </button>
-					<br>
-					<button class="depth" type="button" id="sad"> Sad </button>
-					<br>
-					<button class="depth" type="button" id="angry"> Angry </button>
-					<br>
-					<button class="depth" type="button" id="relaxing"> Relaxing </button>
-					<br>
-					<button class="depth" type="button" id="dance"> Dance </button>
-					<br>
-					<button class="depth" type="button" id="time-to-sleep"> Time to Sleep </button>
-
-				
-				</div>
-
-				<br>
-
-
-				<div class="search">
-				    <form>
-				    <h3>Search for more YouTube noises</h3>
-				       <input type="text" name="searchInput" id="userSearch"><br>
-				       <button class="searchButton">
-				         Search
-				       </button>
-				    </form>
-				</div>
-
-			</div>
-
-		</div>
-
-		<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 youtube">
-
-			<div> 
-
-				   <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-			    <div id="player"></div>
-
-			    <iframe width="560" height="315" src="https://www.youtube.com/embed/jX6kn9_U8qk" frameborder="0" allowfullscreen></iframe>
-
-			</div>
-
-
-	    </div>
-
-
-
-	</div>
-
-	<div class="playlist">
-
-		<div>
-
-			<h3> Playlist </h3>
-
-			<table class="table">
-		 	 <thead>
-		    	<tr>
-		    	  <th>Playlist Number</th>
-		     	  <th>Playlist Link</th>
-		   		</tr>
-		     </thead>
-		     <tbody>
-		        <tr>
-		      	  <td id="train"></td>
-		     	  <td id="train-destination"></td>
-		     	  <td id="train-frequency"></td>
-		     	  <td id="train-next-arrival"></td>
-		     	  <td id="train-minutes-away"></td>
-		   	     </tr>
-		  	  </tbody>
-		  	</table>
-		</div>
-
-	</div>
-
-</div>
-
-<script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
-<!--<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
-<script src="js/vendor/modernizr.js"> </script>
-<script src="//cdn.jsdelivr.net/velocity/1.4/velocity.min.js"></script> -->
-<script src="https://code.jquery.com/jquery-3.1.1.js" </script>
-<script src="assets/javascript/app.js"> </script>
-<script src="assets/javascript/index.js"> </script>
-<script type="text/javascript">
-    
-/*
-    // This is our API key
-    var APIKey = "166a433c57516f51dfab1f7edaed8413";
-    // Here we are building the URL we need to query the database
-    //var queryURL = "http://api.openweathermap.org/data/2.5/weather?" + "q=Bujumbura,Burundi&units=imperial&appid=" + APIKey;
-    //var searchLocation = $("#selectedLocation").val().trim();
-    var searchLocation = "houston";
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?" + "q=" + searchLocation + "&units=imperial&appid=" + APIKey;
-//start of button
-$("#btnSelectLocation").on("click", function(event) {
-  event.preventDefault();
-  searchLocation = $("#selectedLocation").val().trim();
-  //console.log("Location: " + searchLocation);
-  queryURL = "http://api.openweathermap.org/data/2.5/weather?" + "q=" + searchLocation + "&units=imperial&appid=" + APIKey;
-  //console.log(queryURL);
-//});
-/*
-          $(".city").html("<h1>" + response.name + " Weather Details</h1>");
-          console.log("City: " + response.name);
-          $(".wind").html("Wind Speed: " + response.wind.speed);
-          console.log("Wind speed: " + response.wind.speed);
-          $(".humidity").html("Humidity: " + response.main.humidity);
-          console.log("Humidity: " + response.main.humidity);
-          $(".temp").html("Temperature (F) " + response.main.temp);
-          console.log("Temperature: " + response.main.temp);
-*/
-//end of button
-    // Here we run our AJAX call to the OpenWeatherMap API
-  /*  $.ajax({
-        url: queryURL,
-        method: "GET"
-      })
-      // We store all of the retrieved data inside of an object called "response"
-      .done(function(response) {
-        // Log the queryURL
-        console.log(queryURL);
-        // Log the resulting object
-        console.log(response);
-        // Transfer content to HTML
-        $(".city").html("<h1>" + response.name + " Weather Details</h1>");
-        $(".wind").html("Wind Speed: " + response.wind.speed);
-        $(".humidity").html("Humidity: " + response.main.humidity);
-        $(".temp").html("Temperature (F): " + response.main.temp);
-        $(".rain").html("Precipitation: " + response.weather[0].main);
-        // Log the data in the console as well
-        //console.log("Wind Speed: " + response.wind.speed);
-        //console.log("Humidity: " + response.main.humidity);
-        //console.log("Temperature (F): " + response.main.temp);
-  
-        });
-      }); 
-
-var headerColor = Math.floor(Math.random() * 7)+1;
-
-if (headerColor === 1) {
-	$(".header").css("background", "rgba(101, 44, 144, 1)");
-}
-else if (headerColor === 2) {
-	$(".header").css("background", "rgba(0, 167, 157, 1)");
-}
-else if (headerColor === 3) {
-	$(".header").css("background", "rgba(212, 20, 90, 0.7)");
-}
-else if (headerColor === 4) {
-	$(".header").css("background", "rgba(147, 39, 143, 1)");
-	$("#title").css("color", "333");
-	$("#slogan").css("color", "333");
-}
-else if (headerColor === 5) {
- $(".header").css("background", "rgba(158, 0, 93, 1)");
-}
-else if (headerColor === 6) {
- $(".header").css("background", "rgba(253, 185, 19, 1)");
-}
-else if (headerColor === 7) {
- $(".header").css("background", "rgba(43, 57, 144, 1)");
-}
-
-
-function moods (){
-
-	$(".mood-buttons").toggle();
-	$(".search").toggle();
-	$(".main-table").toggle();
-
-	$(".show-left-drawer").on("click", function(){
-		$(".main-table").toggle();
-
-		$("#weather").click(function(){
-			$(".weather-selector").show(500);
-			$(".mood-buttons").hide(500);
-			$(".search").hide(500);
-			//$("#box").html("");
-		    //$("#box").append($(".weather-selector"));
-		});
-		$("#mood-button").click(function(){
-		   $(".mood-buttons").show(500);
-			$(".weather-selector").hide(500);
-			$(".search").hide(500);
-			//$("#box").html("");
-			//$("#box").append($(".mood-buttons"));
-		});
-		$("#custom-search").click(function(){
-			$(".search").show(500);
-			$(".mood-buttons").hide(500);
-			$(".weather-selector").hide(500);
-			//$("#box").html("");
-			//$("#box").append($(".search"));
-		})
-
-	})
-};
-
-moods(); */
-  </script>
-</body>
+  </body>
 </html>
