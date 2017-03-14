@@ -1,4 +1,6 @@
 
+
+
 // This is our API key
     var APIKey = "166a433c57516f51dfab1f7edaed8413";
     // Here we are building the URL we need to query the database
@@ -100,15 +102,20 @@ else if (headerColor === 7) {
 
 function moods (){
 
+  var mainTable = $(".main-table")
+
   $(".mood-buttons").toggle();
   $(".search").toggle();
-  $(".main-table").toggle()
+  
 
   $(".show-left-drawer").on("click", function(){
    // $(".main-table").toggle();
-  $(".main-table").velocity({translateX:['5%', '-100%']});
-
-});
+    if (mainTable === ) {
+      mainTable.velocity({translateX:['5%', '-100%']});
+    } else if () {
+      mainTable.velcoty({translateX:['-100%', '5%']});
+    }
+  });
 
 
     $("#weather").click(function(){
