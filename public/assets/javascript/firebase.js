@@ -13,7 +13,6 @@
 
 var database = firebase.database();
 
-
 // Initial Values
 //var initialBid = 0;
 //var name = '';
@@ -41,13 +40,13 @@ database.ref().on("value", function(snapshot) {
     //var queryURL = "http://api.openweathermap.org/data/2.5/weather?" + "q=Bujumbura,Burundi&units=imperial&appid=" + APIKey;
     //var searchLocation = $("#selectedLocation").val().trim();
     var searchLocation = "houston";
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?" + "q=" + searchLocation + "&units=imperial&appid=" + APIKey;
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?" + "q=" + searchLocation + "&units=imperial&appid=" + APIKey;
 //start of button
 $("#btnSelectLocation").on("click", function(event) {
   event.preventDefault();
   searchLocation = $("#selectedLocation").val().trim();
   //console.log("Location: " + searchLocation);
-  queryURL = "https://api.openweathermap.org/data/2.5/weather?" + "q=" + searchLocation + "&units=imperial&appid=" + APIKey;
+  queryURL = "http://api.openweathermap.org/data/2.5/weather?" + "q=" + searchLocation + "&units=imperial&appid=" + APIKey;
   //console.log(queryURL);
 //});
 /*
