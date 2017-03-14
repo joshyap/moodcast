@@ -11,6 +11,7 @@
 #head-image {
     position: relative;
     top: 30px;
+
 }
 
 #title {
@@ -30,6 +31,14 @@
 
 .main-table {
     border: solid black;
+    z-index: 2;
+}
+
+.youtube {
+    display: flex;
+    /*justify-content: center;*/
+    z-index: 1;
+    border: solid black;
 }
 
 .button-head {
@@ -43,7 +52,7 @@
 }
 
 .mood-buttons {
-    
+
 
 }
 
