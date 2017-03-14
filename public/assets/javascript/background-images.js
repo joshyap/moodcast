@@ -1,4 +1,52 @@
+var iframe_base = '<iframe width="560" height="315" src="https://www.youtube.com/embed/';
+var iframe_id = 'dQw4w9WgXcQ"';
+var iframe_end = ' frameborder="0" allowfullscreen></iframe>';
+var iframe_url = iframe_base + iframe_id + iframe_end;
 
+//weather variables
+
+
+
+function updateVideo() {
+		$("#iframe_container").html(iframe_base + iframe_id + iframe_end);
+}
+
+$("#happy").on("click", function() {
+	iframe_id = 'y6Sxv-sUYtM?list=PLZQHnEifrGpRWR0oW9y-4HRdg9Z1Cdbp6"';
+	console.log("button being clicked");
+  updateVideo();
+})
+
+
+$("#sad").on("click", function() {
+	iframe_id = 'Gxx6K5tIuOc?list=PLwa6-OCGmiO05hPneVQqXWv_yRg_CI3PC"';
+  updateVideo();
+})
+
+$("#angry").on("click", function() {
+	ifram_id = '77tvDMkc9eE?list=PLclxqlStifc4RjX5KM3NlIyn3RyN3aydk"';
+  updateVideo();
+})
+
+$("#relaxing").on("click", function() {
+  iframe_id = 'fnW2uLwHAas?list=PL7dWoRZfPDhp9Zh9hGlAM6uYn7QYz9zE-"';
+  updateVideo();
+})
+
+$("#dance").on("click", function() {
+	iframe_id = 'kOkQ4T5WO9E?list=RDQM2ZztqzFH5LM"';
+	updateVideo();
+})
+
+$("#time-to-sleep").on("click", function() {
+	iframe_id = 'aNzCDt2eidg?list=PLAkMrOCkO6bs-aETthIFdzqoxnEX72d6H"'
+  	updateVideo();
+})
+
+
+
+//stuff from background-image.js
+/*
 var backgroundImages = [{
 	number: 1, 
 	mood: "happy", 
@@ -56,3 +104,4 @@ var backgroundImages = [{
 	mood: "cold: temperature is 32 or below",
 	url: "https://www.youtube.com/watch?v=gpW7iYfuGDU",
 }];
+*/
