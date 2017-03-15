@@ -1,154 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Moodcast</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="utf-8">
+  <title>Moodcast</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />
+
+
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-	
+  
 <div class="container"> 
 
-	<div class="row">
+  <div class="row">
 
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 header"> 
-			<img id="head-image" src="assets/images/headphones.png">
-			<h1 id="title"> Moodcast</h1>
-			<h3 id="slogan"> Music for your Mood</h3>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 header"> 
+      <img id="head-image" src="assets/images/headphones.png">
+      <h1 id="title"> Moodcast</h1>
+      <h3 id="slogan"> Music for your Mood</h3>
 
-		</div>
+    </div>
 
-	</div>
+  </div>
 
-	<div class="row">
+  <div class="row">
         <div class="col-xs-12">
             <button class="btn btn-default show-left-drawer">
-            	<div id="menu">
-				  <span></span>
-				  <span></span>
-				  <span></span>
-				  <span></span>
-				</div>
+              <div id="menu">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
             </button>
         </div>
     </div>
 
-	<div class="row">
+  <div class="row">
  
-		<div class="main-table hidden">
+    <div class="main-table hidden">
 
 
-			<div class="button-head">
+      <div class="button-head">
 
-				<button id="weather"><h6> Weather Search</h6></button>
-				<button id="mood-button"><h6> Mood Search</h6></button>
-				<button id="custom-search"><h6> Custom Search</h6></button>
-			</div>
+        <button id="weather"><h6> Weather Search</h6></button>
+        <button id="mood-button"><h6> Mood Search</h6></button>
+        <button id="custom-search"><h6> Custom Search</h6></button>
+      </div>
 
-			<div id="box">
+      <div id="box">
 
-				<div class="weather-selector">
-				<h3> Search by Location </h3>
-					<form>
-					    <input id="selectedLocation" type="text" name="location">
-					    <br>
-					    <button id="btnSelectLocation">Search Location</button>
-					</form>
-					<div class="city"><h5> City: </h5></div>
-					<div class="wind"><h5>Wind: </h5></div>
-					<div class="humidity"><h5>Humidity:</h5></div>
-					<div class="temp"><h5>Temp:</h5></div>
-					<div class="rain"><h5>Rain:</h5></div>
+        <div class="weather-selector">
+        <h3> Search by Location </h3>
+          <form>
+              <input id="selectedLocation" type="text" name="location">
+              <br>
+              <button id="btnSelectLocation">Search Location</button>
+          </form>
+          <div class="city"><h5> City: </h5></div>
+          <div class="wind"><h5>Wind: </h5></div>
+          <div class="humidity"><h5>Humidity:</h5></div>
+          <div class="temp"><h5>Temp:</h5></div>
+          <div class="rain"><h5>Rain:</h5></div>
 
-				</div>
+        </div>
 
-				<br>
+        <br>
 
-				<div class="mood-buttons"> 
+        <div class="mood-buttons"> 
 
-					<button class="depth" type="button" id="happy"> Happy </button>
-					<br>
-					<button class="depth" type="button" id="sad"> Sad </button>
-					<br>
-					<button class="depth" type="button" id="angry"> Angry </button>
-					<br>
-					<button class="depth" type="button" id="relaxing"> Relaxing </button>
-					<br>
-					<button class="depth" type="button" id="dance"> Dance </button>
-					<br>
-					<button class="depth" type="button" id="time-to-sleep"> Time to Sleep </button>
+          <button class="depth" type="button" id="happy"> Happy </button>
+          <br>
+          <button class="depth" type="button" id="sad"> Sad </button>
+          <br>
+          <button class="depth" type="button" id="angry"> Angry </button>
+          <br>
+          <button class="depth" type="button" id="relaxing"> Relaxing </button>
+          <br>
+          <button class="depth" type="button" id="dance"> Dance </button>
+          <br>
+          <button class="depth" type="button" id="time-to-sleep"> Time to Sleep </button>
 
-				
-				</div>
+        
+        </div>
 
-				<br>
+        <br>
 
-		
+    
 
-		
+    
 
-				<div class="search">
-				    <form>
-				    <h3>Search YouTube </h3>
-				       <input type="text" name="searchInput" id="userSearch"><br>
-				       <button class="searchButton">
-				         Search
-				       </button>
-				    </form>
-				</div>
-			</div>
-			
-		</div>
+        <div class="search">
+            <form>
+            <h3>Search YouTube </h3>
+               <input type="text" name="searchInput" id="userSearch"><br>
+               <button class="searchButton">
+                 Search
+               </button>
+            </form>
+        </div>
+      </div>
+      
+    </div>
 
-	</div>
+  </div>
 
-	<div class="row">
-		<div class="youtube">
-
-
-				   <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-			    <div id="player"></div>
-
-			    <iframe width="560" height="315" src="https://www.youtube.com/embed/jX6kn9_U8qk" frameborder="0" allowfullscreen></iframe>
-		</div>
-	</div>
+  <div class="row">
+    <div class="youtube">
 
 
-	<div class="playlist">
+           <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+          <div id="player"></div>
 
-		<div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/jX6kn9_U8qk" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
 
-			<h3> Playlist </h3>
 
-			<table class="table">
-		 	 <thead>
-		    	<tr>
-		    	  <th>Playlist Number</th>
-		     	  <th>Playlist Link</th>
-		   		</tr>
-		     </thead>
-		     <tbody>
-		        <tr>
-		      	  <td id="train"></td>
-		     	  <td id="train-destination"></td>
-		     	  <td id="train-frequency"></td>
-		     	  <td id="train-next-arrival"></td>
-		     	  <td id="train-minutes-away"></td>
-		   	     </tr>
-		  	  </tbody>
-		  	</table>
-		</div>
+  <div class="playlist">
 
-	</div>
+    <div>
+
+      <h3> Playlist </h3>
+
+      <table class="table">
+       <thead>
+          <tr>
+            <th>Playlist Number</th>
+            <th>Playlist Link</th>
+          </tr>
+         </thead>
+         <tbody>
+            <tr>
+              <td id="train"></td>
+            <td id="train-destination"></td>
+            <td id="train-frequency"></td>
+            <td id="train-next-arrival"></td>
+            <td id="train-minutes-away"></td>
+             </tr>
+          </tbody>
+        </table>
+    </div>
+
+  </div>
 
 </div>
 
 <!--trying to link up velocity -->
 <!-- Firebase, jQuery, javascript files -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
-<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.js" </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script> 
 <script src="http://velocityjs.org/build/jquery.velocity.min.js"></script>
