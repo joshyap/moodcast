@@ -1,3 +1,13 @@
+  //setup an on click event to sign out the user
+ $('#sign-out').on('click', function() {
+   console.log('working');
+   firebase.auth().signOut();
+   var href = 'index.html';
+   window.location = href;
+ })
+
+
+
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyD8HAo5CKnGXVBB0AzZXCQVKGedgyAOHF4",
