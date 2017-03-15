@@ -1,4 +1,4 @@
-
+var displayName;
 
   // Initialize Firebase
   var config = {
@@ -17,7 +17,6 @@ var database = firebase.database();
   if (user) {
     // User is signed in.
     var displayName = user.displayName;
-    console.log('displayName' + displayName);
     var email = user.email;
     var emailVerified = user.emailVerified;
     var photoURL = user.photoURL;
@@ -25,28 +24,24 @@ var database = firebase.database();
     var uid = user.uid;
     var providerData = user.providerData;
     // ...
-  } else {
-    // User is signed out.
-    // ...
-  }
-});
 
+
+   // var user = firebase.auth().currentUser.displayName;
+   // console.log('displayName 2 ' + user);
 // --------------------------------------------------------------
-//var userId = firebase.auth().currentUser;
-console.log('firebase.User ' + firebase.User);
-console.log('firebase.displayName' + firebase.displayName);
-// At the initial load, get a snapshot of the current data.
-//database.ref('/users/' + userId).on("value", function(snapshot) {
 
-  //console.log(snapshot.val());
+// At the initial load, get a snapshot of the current data.
+database.ref('/users/' + displayName).on("value", function(snapshot) {
+
+  console.log('value added ' + snapshot.val());
 
   
 
 
-  // If any errors are experienced, log them to console.
-//}, function(errorObject) {
- // console.log("The read failed: " + errorObject.code);
-//});
+  //If any errors are experienced, log them to console.
+}, function(errorObject) {
+ console.log("The read failed: " + errorObject.code);
+});
 
 // --------------------------------------------------------------
 
@@ -116,9 +111,9 @@ $("#btnSelectLocation").on("click", function(event) {
         //console.log("Temperature (F): " + response.main.temp);
 
       // Save the new city in Firebase
-       // database.ref('/users/' + userId).push({
-       // name: response.name,
-      //  });
+       database.ref('/users/' + displayName).push({
+        name: response.name,
+       });
       }
 
   
@@ -136,3 +131,25 @@ $("#btnSelectLocation").on("click", function(event) {
 
     //database.ref()push({})
    })
+   
+    //set up an event to append the data to the screen when a child is added to the database
+
+ database.ref('/users/' + displayName).on('child_added', function(childSnapshot) {
+
+  //store everything into variables
+  var name = childSnapshot.val().name;
+  var link = 'url link';
+
+    console.log('City Name: ' + name);
+
+  //append each train's data into the table
+  $('.table').append('<tr><td>' + name + '</td><td>' + link + '</td></tr>');
+
+ })
+
+  } else {
+    // User is signed out.
+    // ...
+  }
+});
+
