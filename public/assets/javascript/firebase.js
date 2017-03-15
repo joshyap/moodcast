@@ -20,7 +20,7 @@ var database = firebase.database();
 // --------------------------------------------------------------
 
 // At the initial load, get a snapshot of the current data.
-database.ref().on("value", function(snapshot) {
+database.ref('/users/' + userId).on("value", function(snapshot) {
 
   console.log(snapshot.val());
 
@@ -101,7 +101,7 @@ $("#btnSelectLocation").on("click", function(event) {
         //console.log("Temperature (F): " + response.main.temp);
 
       // Save the new city in Firebase
-        database.ref().push({
+        database.ref('/users/' + userId).push({
         name: response.name,
         });
       }
