@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Moodcast</title>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Moodcast</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />
 
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />
-      <link rel="stylesheet" href="assets/css/style.css">
-     </head>
 
-  <body>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
   
 <div class="container"> 
 
@@ -28,13 +29,20 @@
 
   <div class="row">
         <div class="col-xs-12">
-            <button class="btn btn-default show-left-drawer">Toggle Table</button>
+            <button class="btn btn-default show-left-drawer">
+              <div id="menu">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+            </button>
         </div>
     </div>
 
   <div class="row">
  
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 main-table">
+    <div class="main-table hidden">
 
 
       <div class="button-head">
@@ -82,38 +90,36 @@
 
         <br>
 
+    
+
+    
 
         <div class="search">
             <form>
-            <h3>Search for more YouTube noises</h3>
+            <h3>Search YouTube </h3>
                <input type="text" name="searchInput" id="userSearch"><br>
                <button class="searchButton">
                  Search
                </button>
             </form>
         </div>
-
       </div>
-
+      
     </div>
 
-    <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 youtube">
+  </div>
 
-      <div> 
+  <div class="row">
+    <div class="youtube">
+
 
            <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
           <div id="player"></div>
 
           <iframe width="560" height="315" src="https://www.youtube.com/embed/jX6kn9_U8qk" frameborder="0" allowfullscreen></iframe>
-
-      </div>
-
-
-      </div>
-
-
-
+    </div>
   </div>
+
 
   <div class="playlist">
 
@@ -146,6 +152,7 @@
 
 <!--trying to link up velocity -->
 <!-- Firebase, jQuery, javascript files -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
 <script src="https://code.jquery.com/jquery-3.1.1.js" </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js"></script> 
 <script src="http://velocityjs.org/build/jquery.velocity.min.js"></script>
@@ -153,9 +160,6 @@
 <script type="text/javascript" src="assets/javascript/index.js"> </script>
 <script type="text/javascript" src="assets/javascript/background-images.js"></script>
 <script type="text/javascript" src="assets/javascript/firebase.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
-
-
 
 </body>
 </html>
