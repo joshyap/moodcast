@@ -127,4 +127,3 @@ firebase.auth().onAuthStateChanged(function(user) {
 //   $('button').on('click', function() {   
 //    console.log($(this).attr('id'));
  //  })
->>>>>>> de393ef10189de616200957823bcd1330f215025
