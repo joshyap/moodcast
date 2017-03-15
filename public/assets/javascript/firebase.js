@@ -13,14 +13,27 @@
 
 var database = firebase.database();
 
-// Initial Values
-//var initialBid = 0;
-//var name = '';
+      firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    var displayName = user.displayName;
+    var email = user.email;
+    var emailVerified = user.emailVerified;
+    var photoURL = user.photoURL;
+    var isAnonymous = user.isAnonymous;
+    var uid = user.uid;
+    var providerData = user.providerData;
+    // ...
+  } else {
+    // User is signed out.
+    // ...
+  }
+});
 
 // --------------------------------------------------------------
 
 // At the initial load, get a snapshot of the current data.
-database.ref('/users/' + userId).on("value", function(snapshot) {
+database.ref('/users/' + uId).on("value", function(snapshot) {
 
   console.log(snapshot.val());
 
