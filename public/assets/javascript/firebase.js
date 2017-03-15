@@ -17,6 +17,7 @@ var database = firebase.database();
   if (user) {
     // User is signed in.
     var displayName = user.displayName;
+    console.log('displayName' + displayName);
     var email = user.email;
     var emailVerified = user.emailVerified;
     var photoURL = user.photoURL;
@@ -31,19 +32,21 @@ var database = firebase.database();
 });
 
 // --------------------------------------------------------------
-
+//var userId = firebase.auth().currentUser;
+console.log('firebase.User ' + firebase.User);
+console.log('firebase.displayName' + firebase.displayName);
 // At the initial load, get a snapshot of the current data.
-database.ref('/users/' + uId).on("value", function(snapshot) {
+//database.ref('/users/' + userId).on("value", function(snapshot) {
 
-  console.log(snapshot.val());
+  //console.log(snapshot.val());
 
   
 
 
   // If any errors are experienced, log them to console.
-}, function(errorObject) {
-  console.log("The read failed: " + errorObject.code);
-});
+//}, function(errorObject) {
+ // console.log("The read failed: " + errorObject.code);
+//});
 
 // --------------------------------------------------------------
 
@@ -84,7 +87,6 @@ $("#btnSelectLocation").on("click", function(event) {
         console.log(queryURL);
         // Log the resulting object
         console.log(response.name);
-        console.log('working');
 
          var searchName = $('#selectedLocation').val().trim().toLowerCase();
          var name = response.name.toLowerCase();
@@ -114,9 +116,9 @@ $("#btnSelectLocation").on("click", function(event) {
         //console.log("Temperature (F): " + response.main.temp);
 
       // Save the new city in Firebase
-        database.ref('/users/' + userId).push({
-        name: response.name,
-        });
+       // database.ref('/users/' + userId).push({
+       // name: response.name,
+      //  });
       }
 
   

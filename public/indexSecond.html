@@ -10,6 +10,7 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />
       <link rel="stylesheet" href="assets/css/style.css">
     <script type="text/javascript">
+    console.log(firebase.User);
       firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
