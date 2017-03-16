@@ -1,7 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-image: url("../images/geometry.png");
 }
 
+#map{
+    height: 315px;
+    width: 50%;
+
+}
+    
 .header {
 	background-color: #eee;
     margin-bottom: 40px;
@@ -51,6 +61,7 @@ body {
     z-index: 999999;
     position: absolute;
     opacity: 0.8;
+    box-sizing: border-box; 
 }
 
 #menu {
@@ -138,6 +149,10 @@ body {
     display: flex;
     justify-content: center;
     z-index: 1;
+}
+
+#map {
+    width: 50%;
 }
 
 .button-head {
@@ -228,7 +243,7 @@ body {
 	color: #1f0cf8;
 }
 
-#usersearch {
+#userSearch {
     margin-bottom: 10px;
 }
 
