@@ -1,7 +1,15 @@
-.container {
+
+
+body {
     background-image: url("../images/geometry.png");
 }
 
+#map{
+    height: 315px;
+    width: 50%;
+
+}
+    
 .header {
 	background-color: #eee;
     margin-bottom: 40px;
@@ -28,6 +36,20 @@
     align-items: flex-end;
 }
 
+#sign-out {
+    background-color: #444;
+    color: white;
+    margin: 20px;
+    padding: 10px;
+    border: none;
+    opacity: 0.8;
+
+}
+#sign-out:hover {
+    border: solid #1f0cf8;
+
+}
+
 .show-left-drawer {
     color: rgba(255, 255, 255, 0.7);
 }
@@ -37,6 +59,7 @@
     z-index: 999999;
     position: absolute;
     opacity: 0.8;
+    box-sizing: border-box; 
 }
 
 #menu {
@@ -126,6 +149,10 @@
     z-index: 1;
 }
 
+#map {
+    width: 50%;
+}
+
 .button-head {
     background-color: #eee;
     padding: 5px;
@@ -169,6 +196,15 @@
 
 .weather-selector {
     color: black;
+    padding: 20px;
+    font-size:16px;
+    font-weight: bolder;
+    opacity: 1;
+}
+
+#selectedLocation {
+    margin: 0 10px 10px 0;
+    width: 150px;
 }
 
 .mood-buttons {
@@ -192,7 +228,7 @@
     padding: 0;
     text-shadow: 0 1px 1px hsla(0,0%,100%,.25),
                  0 -1px 1px hsla(0,0%,0%,.75);
-    width: 70%;
+    width: 200px;
 
 }
 
@@ -205,11 +241,15 @@
 	color: #1f0cf8;
 }
 
+#userSearch {
+    margin-bottom: 10px;
+}
 
 .search {
     color: black;
     position: relative;
     top: -40px;
+    margin: 20px;
 
 }
 
@@ -217,10 +257,51 @@
     
 }
 
-@media only screen and (max-width:1200px) {
+@media screen 
+    and (max-width: 1600px)
+    and (min-width: 991px) {
+ 
+}
+
+@media screen 
+    and (max-width: 991px)
+    and (min-width: 0px) {
+    .youtube {
+        clear: both;
+        width: 60%;
+        float:left;
+        margin-bottom: 20px;
+        margin-top: 20px;
+
+    }
+    #map {
+        clear: both;
+        float:left;
+        margin-left:20px;
+        width: 60%;
+
+    }
+}
+
+@media screen and (max-width: 736px) {
     .header {
-        width:100%;
+        clear:both;
+        display: block;
+        text-align: center;
     }
 
+    #title {
+        display: flex;
+        justify-content: center;
+    }
+
+    #slogan {
+        display: flex;
+        justify-content: center;
+    }
+
+
 }
+
+
 

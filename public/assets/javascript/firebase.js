@@ -59,8 +59,24 @@ firebase.auth().onAuthStateChanged(function(user) {
   $("#btnSelectLocation").on("click", function(event) {
     event.preventDefault();
     searchLocation = $("#selectedLocation").val().trim();
-
+    var temperature = 0;
     queryURL = "http://api.openweathermap.org/data/2.5/weather?" + "q=" + searchLocation + "&units=imperial&appid=" + APIKey;
+
+      function checkTemperature() {
+        if (temperature < 39) {
+          console.log("temp lower than 39");
+          $(".youtube").html('<iframe width="560" height="315" src="https://www.youtube.com/embed/gpW7iYfuGDU?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+        } else if (temperature > 40 && temperature < 60) {
+          console.log('temp greater than 40 and less than 60');
+          $(".youtube").html('<iframe width="560" height="315" src="https://www.youtube.com/embed/g04EtOyVeHY?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+        } else if (temperature > 59 && temperature < 90) {
+          console.log('temp greater than 59 and less than 90');
+          $(".youtube").html('<iframe width="560" height="315" src="https://www.youtube.com/embed/tSU_NlNHP0c?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+        } else if (temperature > 90) {
+          console.log('temp greater than 90');
+          $(".youtube").html('<iframe width="560" height="315" src="https://www.youtube.com/embed/Wd2qRSzCj84?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+        }
+      }
 
     // Here we run our AJAX call to the OpenWeatherMap API
     $.ajax({
@@ -70,17 +86,44 @@ firebase.auth().onAuthStateChanged(function(user) {
       // We store all of the retrieved data inside of an object called "response"
       .done(function(response) {
         console.log(queryURL);
-        console.log(response.name);
+        console.log(response);
 
          var searchName = $('#selectedLocation').val().trim().toLowerCase();
          var name = response.name.toLowerCase();
 
+        var temp = response.main.temp;
+        console.log('temp ' + temp);
+
+        var prec = response.weather[0].main;
+        console.log('precipitation ' + prec);
+
+        var lati = response.coord.lat;
+        console.log('latitude ' + lati);
+
+        var long = response.coord.lon;
+        console.log('longitude ' + long);
+
+        temperature = response.main.temp;
+        checkTemperature();
+        //create a temporary object to hold new playlist data
+
+        var newPlaylist = {
+          city: name,
+          temperature: temp,
+          precipitation: prec,
+          latitude: lati,
+          longitude: long
+        }
+
          //use underscore to compare entered name and search result
          var nameTest = _.isEqual(searchName, name);
 
+
          //conditional to check it the response name matches the entered name
          if(!nameTest) {
-            alert('invalid city, please try again');
+            $(".main-table").toggleClass("hidden");
+            $("#alert-modal").modal("show");
+            //alert('invalid city, please try again');
          }
 
          // This conditional triggers when the rendered city name matches the city name entered
@@ -94,14 +137,15 @@ firebase.auth().onAuthStateChanged(function(user) {
               $(".rain").html("Precipitation: " + response.weather[0].main);
 
               // Save the new city in Firebase
-              database.ref('/users/' + displayName).push({
-                 name: response.name,
-              });
+              database.ref('/users/' + displayName).push(newPlaylist);
          } 
 
          //function for AJAX 404       
       }).fail(function(error) {
-        alert('Invalid city, please try again');
+        //modal goes here
+        $(".main-table").toggleClass("hidden");
+        $("#alert-modal").modal("show");
+        //alert('Invalid city, please try again');
          });
   }); 
 
@@ -110,11 +154,16 @@ firebase.auth().onAuthStateChanged(function(user) {
  database.ref('/users/' + displayName).on('child_added', function(childSnapshot) {
 
   //store everything into variables
-  var name = childSnapshot.val().name;
-  var link = 'url link';
+  var city = childSnapshot.val().city;
+  var temp = childSnapshot.val().temperature;
+  var prec = childSnapshot.val().precipitation;
+  var lat = childSnapshot.val().latitude;
+  var lon = childSnapshot.val().longitude;
+
 
   //append the user data to the table
-  $('.table').append('<tr><td>' + name + '</td><td>' + link + '</td></tr>');
+  $('.table').append('<tr><td>' + city + '</td><td>' + temp + '</td><td>' + prec + '</td><td>'
+   + lat + '</td><td>' + lon + '</td></tr>');
 
  })
 
@@ -127,3 +176,4 @@ firebase.auth().onAuthStateChanged(function(user) {
 //   $('button').on('click', function() {   
 //    console.log($(this).attr('id'));
  //  })
+
