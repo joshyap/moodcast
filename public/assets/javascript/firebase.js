@@ -75,8 +75,31 @@ firebase.auth().onAuthStateChanged(function(user) {
          var searchName = $('#selectedLocation').val().trim().toLowerCase();
          var name = response.name.toLowerCase();
 
+        var temp = response.main.temp;
+        console.log('temp ' + temp);
+
+        var prec = response.weather[0].main;
+        console.log('precipitation ' + prec);
+
+        var lati = response.coord.lat;
+        console.log('latitude ' + lati);
+
+        var long = response.coord.lon;
+        console.log('longitude ' + long);
+
+        //create a temporary object to hold new playlist data
+
+        var newPlaylist = {
+          city: name,
+          temperature: temp,
+          precipitation: prec,
+          latitude: lati,
+          longitude: long
+        }
+
          //use underscore to compare entered name and search result
          var nameTest = _.isEqual(searchName, name);
+
 
          //conditional to check it the response name matches the entered name
          if(!nameTest) {
@@ -110,11 +133,16 @@ firebase.auth().onAuthStateChanged(function(user) {
  database.ref('/users/' + displayName).on('child_added', function(childSnapshot) {
 
   //store everything into variables
-  var name = childSnapshot.val().name;
-  var link = 'url link';
+  var city = childSnapshot.val().city;
+  var temp = childSnapshot.val().temperature;
+  var prec = childSnapshot.val().precipitation;
+  var lat = childSnapshot.val().latitude;
+  var lon = childSnapshot.val().longitude;
+
 
   //append the user data to the table
-  $('.table').append('<tr><td>' + name + '</td><td>' + link + '</td></tr>');
+  $('.table').append('<tr><td>' + city + '</td><td>' + temp + '</td><td>' + prec + '</td><td>'
+   + lat + '</td><td>' + lon + '</td></tr>');
 
  })
 
