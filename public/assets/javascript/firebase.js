@@ -121,7 +121,9 @@ firebase.auth().onAuthStateChanged(function(user) {
 
          //conditional to check it the response name matches the entered name
          if(!nameTest) {
-            alert('invalid city, please try again');
+            $(".main-table").toggleClass("hidden");
+            $("#alert-modal").modal("show");
+            //alert('invalid city, please try again');
          }
 
          // This conditional triggers when the rendered city name matches the city name entered
@@ -140,7 +142,10 @@ firebase.auth().onAuthStateChanged(function(user) {
 
          //function for AJAX 404       
       }).fail(function(error) {
-        alert('Invalid city, please try again');
+        //modal goes here
+        $(".main-table").toggleClass("hidden");
+        $("#alert-modal").modal("show");
+        //alert('Invalid city, please try again');
          });
   }); 
 
