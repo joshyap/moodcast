@@ -1,4 +1,86 @@
+var iframe_base = '<iframe width="560" height="315" src="https://www.youtube.com/embed/';
+var iframe_id = 'dQw4w9WgXcQ"';
+var iframe_end = ' frameborder="0" allowfullscreen></iframe>';
+var iframe_url = iframe_base + iframe_id + iframe_end;
+var spotify_embed = '<iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Aspotify%3Aplaylist%3A2PXdUld4Ueio2pHcB6sM8j" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>';
 
+//weather variables
+
+
+/*
+var yt_base = 'https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=';
+var yt_key = 'AIzaSyAQXaaSnC8R-r-AQn4Utmj4jbVW61EmXfo';
+var yt_url = yt_base + yt_key;
+
+$.ajax({
+      url: yt_base,
+      method: "GET"
+    }).done(function(response) {
+    	console.log('successful ajax request');
+
+    });
+*/
+
+function updateYoutube() {
+	iframe_url = iframe_base + iframe_id + iframe_end;
+	console.log("new iframe embed: " + iframe_url);
+	$("#player").empty();
+	$("#player").html(iframe_url);
+}
+
+function updateSpotify() {
+	//$("#player").empty();
+	//$("#player").html(spotify_embed);
+}
+
+
+function updateTemp() {
+	var intTemp = $(".temp").val().trim();
+	console.log(intTemp);
+}
+
+$("#happy").on("click", function() {
+	console.log('happy button press');
+	//iframe_id = 'y6Sxv-sUYtM?list=PLZQHnEifrGpRWR0oW9y-4HRdg9Z1Cdbp6"';
+	$('#player').html('<iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:2PXdUld4Ueio2pHcB6sM8j" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>');
+  	//updateSpotify();
+})
+
+
+$("#sad").on("click", function() {
+	console.log('sad button press');
+	$('#player').html('<iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:5eSMIpsnkXJhXEPyRQCTSc" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>');
+  //updateSpotify();
+})
+
+$("#angry").on("click", function() {
+	console.log('angry button press');
+	$('#player').html('<iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:5Z9xJvDtHpB6m5zHgJC5zR" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>');
+  //updateSpotify();
+})
+
+$("#relaxing").on("click", function() {
+	console.log('relaxing button press');
+  $('#player').html('<iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:3InXOgDxJPeA05l6rQyDoe" width="300" height="380" frameborder="0" allowtransparency="true"></iframe');
+  //updateSpotify();
+})
+
+$("#dance").on("click", function() {
+	console.log('dance button press');
+	$('#player').html('<iframe src="https://embed.spotify.com/?uri=spotify:user:sonymusicdenmark:playlist:10Yf6R2nSqXd3Puzvue5Gy" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>');
+	//updateSpotify();
+})
+
+$("#time-to-sleep").on("click", function() {
+	console.log('time to sleep button press');
+	$('#player').html('<iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:5HY9yBxrUMhng4sRgA9Xcg" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>');
+  	//updateSpotify();
+})
+
+
+
+//stuff from background-image.js
+/*
 var backgroundImages = [{
 	number: 1, 
 	mood: "happy", 
@@ -56,3 +138,4 @@ var backgroundImages = [{
 	mood: "cold: temperature is 32 or below",
 	url: "https://www.youtube.com/watch?v=gpW7iYfuGDU",
 }];
+*/
