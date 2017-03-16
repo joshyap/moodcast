@@ -117,9 +117,7 @@ firebase.auth().onAuthStateChanged(function(user) {
               $(".rain").html("Precipitation: " + response.weather[0].main);
 
               // Save the new city in Firebase
-              database.ref('/users/' + displayName).push({
-                 name: response.name,
-              });
+              database.ref('/users/' + displayName).push(newPlaylist);
          } 
 
          //function for AJAX 404       
