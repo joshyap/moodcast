@@ -70,7 +70,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       // We store all of the retrieved data inside of an object called "response"
       .done(function(response) {
         console.log(queryURL);
-        console.log(response.name);
+        console.log(response);
 
          var searchName = $('#selectedLocation').val().trim().toLowerCase();
          var name = response.name.toLowerCase();
