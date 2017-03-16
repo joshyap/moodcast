@@ -59,8 +59,24 @@ firebase.auth().onAuthStateChanged(function(user) {
   $("#btnSelectLocation").on("click", function(event) {
     event.preventDefault();
     searchLocation = $("#selectedLocation").val().trim();
-
+    var temperature = 0;
     queryURL = "http://api.openweathermap.org/data/2.5/weather?" + "q=" + searchLocation + "&units=imperial&appid=" + APIKey;
+
+      function checkTemperature() {
+        if (temperature < 39) {
+          console.log("temp lower than 39");
+          $(".youtube").html('<iframe width="560" height="315" src="https://www.youtube.com/embed/gpW7iYfuGDU?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+        } else if (temperature > 40 && temperature < 60) {
+          console.log('temp greater than 40 and less than 60');
+          $(".youtube").html('<iframe width="560" height="315" src="https://www.youtube.com/embed/g04EtOyVeHY?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+        } else if (temperature > 59 && temperature < 90) {
+          console.log('temp greater than 59 and less than 90');
+          $(".youtube").html('<iframe width="560" height="315" src="https://www.youtube.com/embed/tSU_NlNHP0c?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+        } else if (temperature > 90) {
+          console.log('temp greater than 90');
+          $(".youtube").html('<iframe width="560" height="315" src="https://www.youtube.com/embed/Wd2qRSzCj84?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+        }
+      }
 
     // Here we run our AJAX call to the OpenWeatherMap API
     $.ajax({
@@ -87,6 +103,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         var long = response.coord.lon;
         console.log('longitude ' + long);
 
+        temperature = response.main.temp;
+        checkTemperature();
         //create a temporary object to hold new playlist data
 
         var newPlaylist = {
@@ -153,3 +171,4 @@ firebase.auth().onAuthStateChanged(function(user) {
 //   $('button').on('click', function() {   
 //    console.log($(this).attr('id'));
  //  })
+

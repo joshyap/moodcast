@@ -2,6 +2,11 @@ body {
     background-image: url("../images/geometry.png");
 }
 
+#map{
+        height: 400px;
+        width: 100%;
+       }
+    
 .header {
 	background-color: #eee;
     margin-bottom: 40px;
