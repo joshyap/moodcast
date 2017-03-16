@@ -42,38 +42,38 @@ function updateTemp() {
 $("#happy").on("click", function() {
 	console.log('happy button press');
 	//iframe_id = 'y6Sxv-sUYtM?list=PLZQHnEifrGpRWR0oW9y-4HRdg9Z1Cdbp6"';
-	$('#player').html('<iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:2PXdUld4Ueio2pHcB6sM8j" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>');
+	$('.youtube').html('<iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:2PXdUld4Ueio2pHcB6sM8j" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>');
   	//updateSpotify();
 })
 
 
 $("#sad").on("click", function() {
 	console.log('sad button press');
-	$('#player').html('<iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:5eSMIpsnkXJhXEPyRQCTSc" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>');
+	$('.youtube').html('<iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:5eSMIpsnkXJhXEPyRQCTSc" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>');
   //updateSpotify();
 })
 
 $("#angry").on("click", function() {
 	console.log('angry button press');
-	$('#player').html('<iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:5Z9xJvDtHpB6m5zHgJC5zR" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>');
+	$('.youtube').html('<iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:5Z9xJvDtHpB6m5zHgJC5zR" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>');
   //updateSpotify();
 })
 
 $("#relaxing").on("click", function() {
 	console.log('relaxing button press');
-  $('#player').html('<iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:3InXOgDxJPeA05l6rQyDoe" width="300" height="380" frameborder="0" allowtransparency="true"></iframe');
+  $('.youtube').html('<iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:3InXOgDxJPeA05l6rQyDoe" width="300" height="380" frameborder="0" allowtransparency="true"></iframe');
   //updateSpotify();
 })
 
 $("#dance").on("click", function() {
 	console.log('dance button press');
-	$('#player').html('<iframe src="https://embed.spotify.com/?uri=spotify:user:sonymusicdenmark:playlist:10Yf6R2nSqXd3Puzvue5Gy" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>');
+	$('.youtube').html('<iframe src="https://embed.spotify.com/?uri=spotify:user:sonymusicdenmark:playlist:10Yf6R2nSqXd3Puzvue5Gy" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>');
 	//updateSpotify();
 })
 
 $("#time-to-sleep").on("click", function() {
 	console.log('time to sleep button press');
-	$('#player').html('<iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:5HY9yBxrUMhng4sRgA9Xcg" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>');
+	$('.youtube').html('<iframe src="https://embed.spotify.com/?uri=spotify:user:spotify:playlist:5HY9yBxrUMhng4sRgA9Xcg" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>');
   	//updateSpotify();
 })
 

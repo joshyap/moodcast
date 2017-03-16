@@ -63,16 +63,18 @@ function moods (){
     
 
     $("#weather").click(function(){
-      $(".weather-selector").show(500);
       $(".mood-buttons").hide(500);
       $(".search").hide(500);
+      $(".weather-selector").show(500);
       //$("#box").html("");
         //$("#box").append($(".weather-selector"));
     });
     $("#mood-button").click(function(){
-       $(".mood-buttons").show(500);
       $(".weather-selector").hide(500);
       $(".search").hide(500);
+      setTimeout(function(){
+       $(".mood-buttons").show(500);
+      }, 300);
       //$("#box").html("");
       //$("#box").append($(".mood-buttons"));
     });
