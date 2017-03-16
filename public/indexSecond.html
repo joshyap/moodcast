@@ -3,6 +3,9 @@
 <head>
   <meta charset="utf-8">
   <title>Moodcast</title>
+  <link rel="icon" 
+      type="image/png" 
+      href="assets/images/headphones.png">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
@@ -13,7 +16,7 @@
 </head>
 <body>
 
-<button id='sign-out'>sign out</button>  
+<button id='sign-out'>Sign out</button>  
 <div class="container"> 
 
   <div class="row">
@@ -130,18 +133,15 @@
       <table class="table">
        <thead>
           <tr>
-            <th>Playlist Number</th>
-            <th>Playlist Link</th>
+            <th>City</th>
+            <th>Temperature</th>
+            <th>Precipitation</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
           </tr>
          </thead>
          <tbody>
-            <tr>
-              <td id="train"></td>
-            <td id="train-destination"></td>
-            <td id="train-frequency"></td>
-            <td id="train-next-arrival"></td>
-            <td id="train-minutes-away"></td>
-             </tr>
+            
           </tbody>
         </table>
     </div>

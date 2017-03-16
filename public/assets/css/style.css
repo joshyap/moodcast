@@ -1,4 +1,4 @@
-.container {
+body {
     background-image: url("../images/geometry.png");
 }
 
@@ -26,6 +26,20 @@
 #slogan {
     display: flex;
     align-items: flex-end;
+}
+
+#sign-out {
+    background-color: #444;
+    color: white;
+    margin: 20px;
+    padding: 10px;
+    border: none;
+    opacity: 0.8;
+
+}
+#sign-out:hover {
+    border: solid #1f0cf8;
+
 }
 
 .show-left-drawer {
@@ -169,6 +183,15 @@
 
 .weather-selector {
     color: black;
+    padding: 20px;
+    font-size:16px;
+    font-weight: bolder;
+    opacity: 1;
+}
+
+#selectedLocation {
+    margin: 0 10px 10px 0;
+    width: 150px;
 }
 
 .mood-buttons {
@@ -192,7 +215,7 @@
     padding: 0;
     text-shadow: 0 1px 1px hsla(0,0%,100%,.25),
                  0 -1px 1px hsla(0,0%,0%,.75);
-    width: 70%;
+    width: 200px;
 
 }
 
@@ -205,11 +228,15 @@
 	color: #1f0cf8;
 }
 
+#usersearch {
+    margin-bottom: 10px;
+}
 
 .search {
     color: black;
     position: relative;
     top: -40px;
+    margin: 20px;
 
 }
 
