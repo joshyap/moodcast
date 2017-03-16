@@ -1,6 +1,4 @@
-* {
-    box-sizing: border-box;
-}
+
 
 body {
     background-image: url("../images/geometry.png");
@@ -259,10 +257,24 @@ body {
     
 }
 
-@media only screen and (max-width:1200px) {
-    .header {
-        width:100%;
+@media screen and (max-width: 980px) { 
+    #slogan {
+        color: green;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #slogan {
+        color: red;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    #slogan {
+        color: blue;
     }
 
 }
+
+
 
