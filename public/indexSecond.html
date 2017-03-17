@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.js" </script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css"/>
 
 
@@ -138,12 +140,8 @@
       </div>
     <div id="map" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
      
-      <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQXaaSnC8R-r-AQn4Utmj4jbVW61EmXfo&callback=initMap">
-    </script>
-
-  <script type="text/javascript">
-  var APIKey = "166a433c57516f51dfab1f7edaed8413";
+<script type="text/javascript">
+    var APIKey = "166a433c57516f51dfab1f7edaed8413";
     var searchLocation = "houston";
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?" + "q=" + searchLocation + "&units=imperial&appid=" + APIKey;
     var arrayLat = [];
@@ -154,49 +152,124 @@
     var recentCoordinates;
     var temperature = 0;
     var locations = {
-      uluruLocation: {lat: 30.27, lng: -97.74},
-      houstonLocation: {lat: 29.76, lng: -95.36}
+        uluruLocation: {lat: 30.27, lng: -97.74},
+        houstonLocation: {lat: 29.76, lng: -95.36}
     };
+    var mapUrl_start = "https://maps.google.com/maps?ll=";
+    var mapUrl_end = "&z=5&t=p&hl=en-US&gl=US&mapclient=apiv3";
+    var map_lat = 29.76;
+    var map_lon = 5.36;
+    var mapUrl_full = "https://maps.google.com/maps?ll=30.27,-97.74&z=5&t=p&hl=en-US&gl=US&mapclient=apiv3";
+    //map url -> https://maps.google.com/maps?ll=30.27,-97.74&z=5&t=p&hl=en-US&gl=US&mapclient=apiv3
     var newMarker;
     var coords;
-
-    var map;
-    var markers = [];
-//location.reload() to reload entire page
-      function initMap() {
-        var uluru = {lat: 30.27, lng: -97.74};
-        var houston = {lat: 29.76, lng: -95.36};
-        //var austin = {lat: 30.27, lon: -97.74};
-        //newLocation = locations.[locations.length -1];
-
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 5,
-          center: uluru,
-          mapTypeId: 'terrain'
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-        newMarker = new google.maps.Marker({
+    var marker;
+    //var map;
+    //var markers = [];
+    /*
+    newMarker = new google.maps.Marker({
           position: coords,
           map: map
         });
+        */
+//location.reload() to reload entire page
+      function initMap() {
+        var northKorea = {lat: 37.7749, lng: 122.4194};
+        var austin = {lat: 30.27, lng: -97.74};
+        var houston = {lat: 29.76, lng: -95.36};
+        //var austin = {lat: 30.27, lon: -97.74};
+        //newLocation = locations.[locations.length -1];
+        window.map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 5,
+          center: houston,
+          mapTypeId: 'terrain'
+        });
+        new google.maps.Marker({
+          position: austin,
+          map: window.map
+        });
       }
-
-      function deleteMarker() {
-
+      function newMarkerfunc(coords) {
+        newMarker = new google.maps.Marker({
+          position: coords,
+          map: window.map
+        })
       }
-
       function grabCoordinates(coords) {
         recentLat = arrayLat[arrayLat.length -1];
         recentLon = arrayLon[arrayLon.length -1];
         recentLocationString = '{lat: ' + recentLat + ', ' + "lng: " + recentLon + '};';
         console.log('recentLocationString = ' + recentLocationString);
         locations.searchLocation = {lat: recentLat, lng: recentLon};
-        var newMarker = new google.maps.Marker(coords);
       }
-      </script>
+      function checkTemperature() {
+        if (temperature < 39) {
+          console.log("temp lower than 39");
+          $("#youtube").html('<iframe width="560" height="315" src="https://www.youtube.com/embed/gpW7iYfuGDU?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+        } else if (temperature > 40 && temperature < 60) {
+          console.log('temp greater than 40 and less than 60');
+          $("#youtube").html('<iframe width="560" height="315" src="https://www.youtube.com/embed/g04EtOyVeHY?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+        } else if (temperature > 59 && temperature < 90) {
+          console.log('temp greater than 59 and less than 90');
+          $("#youtube").html('<iframe width="560" height="315" src="https://www.youtube.com/embed/tSU_NlNHP0c?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+        } else if (temperature > 90) {
+          console.log('temp greater than 90');
+          $("#youtube").html('<iframe width="560" height="315" src="https://www.youtube.com/embed/Wd2qRSzCj84?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+        }
+      }
+// In the following example, markers appear when the user clicks on the map.
+// Each marker is labeled with a single alphabetical character.
+        $("#btnSelectLocation").on("click", function(event) {
+  event.preventDefault();
+  searchLocation = $("#selectedLocation").val().trim();
+  queryURL = "http://api.openweathermap.org/data/2.5/weather?" + "q=" + searchLocation + "&units=imperial&appid=" + APIKey;
+    // Here we run our AJAX call to the OpenWeatherMap API
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+      // We store all of the retrieved data inside of an object called "response"
+      .done(function(response) {
+        // Log the queryURL
+        console.log(queryURL);
+        // Log the resulting object
+        console.log(response);
+        // Transfer content to HTML
+        $(".city").html("<h1>" + response.name + " Weather Details</h1>");
+        $(".wind").html("Wind Speed: " + response.wind.speed);
+        $(".humidity").html("Humidity: " + response.main.humidity);
+        $(".temp").html("Temperature (F): " + response.main.temp);
+        $(".rain").html("Precipitation: " + response.weather[0].main);
+        $(".latitude").html("Latitude: " + response.coord.lat);
+        $(".longitude").html("Longitude: " + response.coord.lon);
+      
+        console.log("Location: " + searchLocation);
+        console.log("response new longitude: " + response.coord.lon);
+        console.log("response new latitude: " + response.coord.lat);
+        arrayLat.push(response.coord.lat);
+        arrayLon.push(response.coord.lon);
+    
+    coords = {lat: response.coord.lat, lng: response.coord.lon};
+    console.log(coords);
+    newMarkerfunc(coords);
+    //console.log("temperature " + response.main.temp);
+    temperature = response.main.temp;
+    checkTemperature();
+    console.log(marker.map.mapUrl);
+    console.log("please capture this: " + mapUrl_start + map_lat + ',' + map_lon + mapUrl_end);
+    mapUrl_full = mapUrl_start + map_lat + ',' + map_lon + mapUrl_end;
+    console.log("captured map url full: " + mapUrl_full);
+    marker.map.mapUrl = mapUrl_full;
+    //initMap();
+      //grabCoordinates(coords);
+        });
+      }); 
+    
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQXaaSnC8R-r-AQn4Utmj4jbVW61EmXfo&callback=initMap">
+    </script>
+
     </div>
   </div>
 
@@ -232,12 +305,12 @@
 
 <!--trying to link up velocity -->
 <!-- Firebase, jQuery, javascript files -->
-<script src="https://code.jquery.com/jquery-3.1.1.js" </script> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+ 
+
 <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js"></script>
 <script type="text/javascript" src="assets/javascript/app.js"> </script>
 <script type="text/javascript" src="assets/javascript/index.js"> </script>
 <script type="text/javascript" src="assets/javascript/background-images.js"></script>
