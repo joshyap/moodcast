@@ -104,7 +104,6 @@ firebase.auth().onAuthStateChanged(function(user) {
         console.log('longitude ' + long);
 
         temperature = response.main.temp;
-        checkTemperature();
         //create a temporary object to hold new playlist data
 
         var newPlaylist = {
@@ -128,6 +127,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
          // This conditional triggers when the rendered city name matches the city name entered
          else {
+                  checkTemperature();
 
               // Transfer content to HTML
               $(".city").html("<h1>" + response.name + " Weather Details</h1>");
