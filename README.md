@@ -1,6 +1,6 @@
 # moodcast
 
-**Team members:** Cameron Tharp, Corey Brooks, Scott Shampine, Josh Yap
+**Team members:** Cameron Tharp, Corey Brooks, Josh Yap
 
 **What is Moodcast?**
 
