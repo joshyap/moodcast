@@ -42,7 +42,7 @@ body {
     margin: 20px;
     padding: 10px;
     border: none;
-    opacity: 0.8;
+    opacity: 1;
 
 }
 #sign-out:hover {
@@ -58,7 +58,7 @@ body {
     border: solid black;
     z-index: 999999;
     position: absolute;
-    opacity: 0.8;
+    opacity: 1;
     box-sizing: border-box; 
 }
 
