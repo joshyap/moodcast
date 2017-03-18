@@ -1,6 +1,4 @@
-* {
-    box-sizing: border-box;
-}
+
 
 body {
     background-image: url("../images/geometry.png");
@@ -259,10 +257,51 @@ body {
     
 }
 
-@media only screen and (max-width:1200px) {
+@media screen 
+    and (max-width: 1600px)
+    and (min-width: 991px) {
+ 
+}
+
+@media screen 
+    and (max-width: 991px)
+    and (min-width: 0px) {
+    .youtube {
+        clear: both;
+        width: 60%;
+        float:left;
+        margin-bottom: 20px;
+        margin-top: 20px;
+
+    }
+    #map {
+        clear: both;
+        float:left;
+        margin-left:20px;
+        width: 60%;
+
+    }
+}
+
+@media screen and (max-width: 736px) {
     .header {
-        width:100%;
+        clear:both;
+        display: block;
+        text-align: center;
     }
 
+    #title {
+        display: flex;
+        justify-content: center;
+    }
+
+    #slogan {
+        display: flex;
+        justify-content: center;
+    }
+
+
 }
+
+
 
