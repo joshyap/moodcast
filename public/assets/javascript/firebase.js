@@ -104,7 +104,6 @@ firebase.auth().onAuthStateChanged(function(user) {
         console.log('longitude ' + long);
 
         temperature = response.main.temp;
-        checkTemperature();
         //create a temporary object to hold new playlist data
 
         var newPlaylist = {
@@ -121,11 +120,14 @@ firebase.auth().onAuthStateChanged(function(user) {
 
          //conditional to check it the response name matches the entered name
          if(!nameTest) {
-            alert('invalid city, please try again');
+            $(".main-table").toggleClass("hidden");
+            $("#alert-modal").modal("show");
+            //alert('invalid city, please try again');
          }
 
          // This conditional triggers when the rendered city name matches the city name entered
          else {
+                  checkTemperature();
 
               // Transfer content to HTML
               $(".city").html("<h1>" + response.name + " Weather Details</h1>");
@@ -140,7 +142,10 @@ firebase.auth().onAuthStateChanged(function(user) {
 
          //function for AJAX 404       
       }).fail(function(error) {
-        alert('Invalid city, please try again');
+        //modal goes here
+        $(".main-table").toggleClass("hidden");
+        $("#alert-modal").modal("show");
+        //alert('Invalid city, please try again');
          });
   }); 
 
